@@ -1,12 +1,56 @@
 {
-  "NVD total CVEs in database": "341,584",
-  "EPSS total CVEs scored": "323,901",
-  "CISA KEV actively exploited": "1,555",
-  "MITRE ATT&CK techniques": "823",
-  "GitHub advisories sampled": "500",
-  "Synthetic assets": "50",
-  "NVD CVEs with CVSS > 9 (Critical)": "60",
-  "EPSS CVEs with score > 0.5": "7",
-  "KEV: median days to patch": "21 days",
-  "NVD-EPSS CVEs overlapping": "0"
+  "nvd": {
+    "sample_size": 500,
+    "total_in_db": 341641,
+    "cvss_coverage_pct": 65.6,
+    "severity_distribution": {
+      "MEDIUM": 174,
+      "UNKNOWN": 172,
+      "HIGH": 110,
+      "CRITICAL": 42,
+      "LOW": 2
+    },
+    "mean_cvss": 6.9
+  },
+  "epss": {
+    "sample_size": 2051,
+    "total_in_db": 2051,
+    "pct_below_0_1": 42.0,
+    "pct_above_0_5": 44.0,
+    "median_epss": 0.29491
+  },
+  "kev": {
+    "total": 1555,
+    "ransomware_count": 313,
+    "ransomware_pct": 20.1,
+    "top_5_vendors": {
+      "Microsoft": 362,
+      "Apple": 93,
+      "Cisco": 86,
+      "Adobe": 76,
+      "Google": 70
+    },
+    "median_remediation_days": 21.0
+  },
+  "epss_kev_comparison": {
+    "kev_median_epss": 0.71001,
+    "nonkev_median_epss": 0.00197,
+    "ratio": 360.4
+  },
+  "github_advisories": {
+    "total": 500
+  },
+  "msrc": {
+    "total": 2179,
+    "patch_available_pct": 91.9
+  },
+  "hhs_breach": {
+    "total": 697,
+    "hacking_pct": 86.1
+  },
+  "assets": {
+    "total": 50,
+    "internet_facing": 30
+  },
+  "charts_generated": 18
 }
