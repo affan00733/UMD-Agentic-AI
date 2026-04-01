@@ -1,0 +1,12 @@
+{
+  "NVD total CVEs in database": "341,584",
+  "EPSS total CVEs scored": "323,901",
+  "CISA KEV actively exploited": "1,555",
+  "MITRE ATT&CK techniques": "823",
+  "GitHub advisories sampled": "500",
+  "Synthetic assets": "50",
+  "NVD CVEs with CVSS > 9 (Critical)": "60",
+  "EPSS CVEs with score > 0.5": "7",
+  "KEV: median days to patch": "21 days",
+  "NVD-EPSS CVEs overlapping": "0"
+}

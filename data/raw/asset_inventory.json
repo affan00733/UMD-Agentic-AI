@@ -1,0 +1,973 @@
+[
+  {
+    "asset_id": "ASSET-001",
+    "asset_name": "customer-portal-prod-01",
+    "business_unit": "Customer Portal",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "medium",
+    "owner_team": "Customer Portal Team",
+    "os": "Ubuntu 20.04",
+    "software_installed": [
+      "nodejs/18.0",
+      "react/18.2",
+      "express/4.18",
+      "mongodb/6.0",
+      "nginx/1.22.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-002",
+    "asset_name": "data-analytics-prod-02",
+    "business_unit": "Data Analytics",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "critical",
+    "owner_team": "Data Analytics Team",
+    "os": "Amazon Linux 2",
+    "software_installed": [
+      "python/3.10",
+      "pandas/2.0",
+      "jupyter/3.6",
+      "postgresql/15",
+      "redis/7.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-003",
+    "asset_name": "customer-portal-stag-03",
+    "business_unit": "Customer Portal",
+    "environment": "staging",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Customer Portal Team",
+    "os": "Ubuntu 22.04",
+    "software_installed": [
+      "nodejs/18.0",
+      "react/18.2",
+      "express/4.18",
+      "mongodb/6.0",
+      "nginx/1.22.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-004",
+    "asset_name": "customer-portal-prod-04",
+    "business_unit": "Customer Portal",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Customer Portal Team",
+    "os": "RHEL 8",
+    "software_installed": [
+      "nodejs/18.0",
+      "react/18.2",
+      "express/4.18",
+      "mongodb/6.0",
+      "nginx/1.22.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-005",
+    "asset_name": "data-analytics-stag-05",
+    "business_unit": "Data Analytics",
+    "environment": "staging",
+    "internet_facing": false,
+    "criticality": "low",
+    "owner_team": "Data Analytics Team",
+    "os": "Ubuntu 20.04",
+    "software_installed": [
+      "python/3.10",
+      "pandas/2.0",
+      "jupyter/3.6",
+      "postgresql/15",
+      "redis/7.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-006",
+    "asset_name": "devops-tooling-stag-06",
+    "business_unit": "DevOps Tooling",
+    "environment": "staging",
+    "internet_facing": false,
+    "criticality": "critical",
+    "owner_team": "DevOps Tooling Team",
+    "os": "Ubuntu 20.04",
+    "software_installed": [
+      "jenkins/2.400",
+      "docker/24.0",
+      "git/2.40",
+      "python/3.11"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-007",
+    "asset_name": "reporting-prod-07",
+    "business_unit": "Reporting",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "high",
+    "owner_team": "Reporting Team",
+    "os": "Ubuntu 20.04",
+    "software_installed": [
+      "python/3.9",
+      "django/3.2",
+      "mysql/8.0",
+      "celery/5.3"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-008",
+    "asset_name": "api-gateway-prod-08",
+    "business_unit": "API Gateway",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "API Gateway Team",
+    "os": "Windows Server 2019",
+    "software_installed": [
+      "kong/3.3",
+      "nginx/1.24.0",
+      "redis/7.0",
+      "python/3.11"
+    ],
+    "pci_dss_scope": true,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-009",
+    "asset_name": "customer-portal-prod-09",
+    "business_unit": "Customer Portal",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "medium",
+    "owner_team": "Customer Portal Team",
+    "os": "RHEL 8",
+    "software_installed": [
+      "nodejs/18.0",
+      "react/18.2",
+      "express/4.18",
+      "mongodb/6.0",
+      "nginx/1.22.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-010",
+    "asset_name": "authentication-deve-10",
+    "business_unit": "Authentication",
+    "environment": "development",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Authentication Team",
+    "os": "Amazon Linux 2",
+    "software_installed": [
+      "keycloak/21.0",
+      "java/17",
+      "postgresql/14",
+      "nginx/1.24.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-011",
+    "asset_name": "devops-tooling-stag-11",
+    "business_unit": "DevOps Tooling",
+    "environment": "staging",
+    "internet_facing": false,
+    "criticality": "low",
+    "owner_team": "DevOps Tooling Team",
+    "os": "Ubuntu 22.04",
+    "software_installed": [
+      "jenkins/2.400",
+      "docker/24.0",
+      "git/2.40",
+      "python/3.11"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-012",
+    "asset_name": "authentication-deve-12",
+    "business_unit": "Authentication",
+    "environment": "development",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Authentication Team",
+    "os": "RHEL 8",
+    "software_installed": [
+      "keycloak/21.0",
+      "java/17",
+      "postgresql/14",
+      "nginx/1.24.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-013",
+    "asset_name": "api-gateway-stag-13",
+    "business_unit": "API Gateway",
+    "environment": "staging",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "API Gateway Team",
+    "os": "Amazon Linux 2",
+    "software_installed": [
+      "kong/3.3",
+      "nginx/1.24.0",
+      "redis/7.0",
+      "python/3.11"
+    ],
+    "pci_dss_scope": true,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-014",
+    "asset_name": "customer-portal-prod-14",
+    "business_unit": "Customer Portal",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "high",
+    "owner_team": "Customer Portal Team",
+    "os": "Windows Server 2022",
+    "software_installed": [
+      "nodejs/18.0",
+      "react/18.2",
+      "express/4.18",
+      "mongodb/6.0",
+      "nginx/1.22.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-015",
+    "asset_name": "customer-portal-deve-15",
+    "business_unit": "Customer Portal",
+    "environment": "development",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Customer Portal Team",
+    "os": "Windows Server 2019",
+    "software_installed": [
+      "nodejs/18.0",
+      "react/18.2",
+      "express/4.18",
+      "mongodb/6.0",
+      "nginx/1.22.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-016",
+    "asset_name": "authentication-prod-16",
+    "business_unit": "Authentication",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Authentication Team",
+    "os": "Windows Server 2022",
+    "software_installed": [
+      "keycloak/21.0",
+      "java/17",
+      "postgresql/14",
+      "nginx/1.24.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-017",
+    "asset_name": "internal-hr-prod-17",
+    "business_unit": "Internal HR",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "high",
+    "owner_team": "Internal HR Team",
+    "os": "Amazon Linux 2",
+    "software_installed": [
+      "java/17",
+      "spring-boot/3.1",
+      "mysql/8.0",
+      "apache-tomcat/10.1"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-018",
+    "asset_name": "authentication-stag-18",
+    "business_unit": "Authentication",
+    "environment": "staging",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Authentication Team",
+    "os": "Amazon Linux 2",
+    "software_installed": [
+      "keycloak/21.0",
+      "java/17",
+      "postgresql/14",
+      "nginx/1.24.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-019",
+    "asset_name": "customer-portal-stag-19",
+    "business_unit": "Customer Portal",
+    "environment": "staging",
+    "internet_facing": true,
+    "criticality": "high",
+    "owner_team": "Customer Portal Team",
+    "os": "RHEL 8",
+    "software_installed": [
+      "nodejs/18.0",
+      "react/18.2",
+      "express/4.18",
+      "mongodb/6.0",
+      "nginx/1.22.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-020",
+    "asset_name": "data-analytics-prod-20",
+    "business_unit": "Data Analytics",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "low",
+    "owner_team": "Data Analytics Team",
+    "os": "Windows Server 2022",
+    "software_installed": [
+      "python/3.10",
+      "pandas/2.0",
+      "jupyter/3.6",
+      "postgresql/15",
+      "redis/7.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-021",
+    "asset_name": "data-analytics-stag-21",
+    "business_unit": "Data Analytics",
+    "environment": "staging",
+    "internet_facing": false,
+    "criticality": "critical",
+    "owner_team": "Data Analytics Team",
+    "os": "Ubuntu 20.04",
+    "software_installed": [
+      "python/3.10",
+      "pandas/2.0",
+      "jupyter/3.6",
+      "postgresql/15",
+      "redis/7.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-022",
+    "asset_name": "payment-processing-deve-22",
+    "business_unit": "Payment Processing",
+    "environment": "development",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Payment Processing Team",
+    "os": "Windows Server 2019",
+    "software_installed": [
+      "nginx/1.24.0",
+      "python/3.11",
+      "django/4.1.0",
+      "postgresql/14",
+      "openssl/3.0.2"
+    ],
+    "pci_dss_scope": true,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-023",
+    "asset_name": "authentication-prod-23",
+    "business_unit": "Authentication",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Authentication Team",
+    "os": "RHEL 8",
+    "software_installed": [
+      "keycloak/21.0",
+      "java/17",
+      "postgresql/14",
+      "nginx/1.24.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-024",
+    "asset_name": "api-gateway-prod-24",
+    "business_unit": "API Gateway",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "API Gateway Team",
+    "os": "Windows Server 2019",
+    "software_installed": [
+      "kong/3.3",
+      "nginx/1.24.0",
+      "redis/7.0",
+      "python/3.11"
+    ],
+    "pci_dss_scope": true,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-025",
+    "asset_name": "reporting-deve-25",
+    "business_unit": "Reporting",
+    "environment": "development",
+    "internet_facing": false,
+    "criticality": "low",
+    "owner_team": "Reporting Team",
+    "os": "Ubuntu 20.04",
+    "software_installed": [
+      "python/3.9",
+      "django/3.2",
+      "mysql/8.0",
+      "celery/5.3"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-026",
+    "asset_name": "authentication-prod-26",
+    "business_unit": "Authentication",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Authentication Team",
+    "os": "Amazon Linux 2",
+    "software_installed": [
+      "keycloak/21.0",
+      "java/17",
+      "postgresql/14",
+      "nginx/1.24.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-027",
+    "asset_name": "authentication-stag-27",
+    "business_unit": "Authentication",
+    "environment": "staging",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Authentication Team",
+    "os": "Windows Server 2019",
+    "software_installed": [
+      "keycloak/21.0",
+      "java/17",
+      "postgresql/14",
+      "nginx/1.24.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-028",
+    "asset_name": "reporting-prod-28",
+    "business_unit": "Reporting",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "high",
+    "owner_team": "Reporting Team",
+    "os": "RHEL 8",
+    "software_installed": [
+      "python/3.9",
+      "django/3.2",
+      "mysql/8.0",
+      "celery/5.3"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-029",
+    "asset_name": "devops-tooling-prod-29",
+    "business_unit": "DevOps Tooling",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "critical",
+    "owner_team": "DevOps Tooling Team",
+    "os": "Ubuntu 22.04",
+    "software_installed": [
+      "jenkins/2.400",
+      "docker/24.0",
+      "git/2.40",
+      "python/3.11"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-030",
+    "asset_name": "internal-hr-stag-30",
+    "business_unit": "Internal HR",
+    "environment": "staging",
+    "internet_facing": false,
+    "criticality": "low",
+    "owner_team": "Internal HR Team",
+    "os": "RHEL 8",
+    "software_installed": [
+      "java/17",
+      "spring-boot/3.1",
+      "mysql/8.0",
+      "apache-tomcat/10.1"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-031",
+    "asset_name": "customer-portal-prod-31",
+    "business_unit": "Customer Portal",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "low",
+    "owner_team": "Customer Portal Team",
+    "os": "RHEL 8",
+    "software_installed": [
+      "nodejs/18.0",
+      "react/18.2",
+      "express/4.18",
+      "mongodb/6.0",
+      "nginx/1.22.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-032",
+    "asset_name": "authentication-deve-32",
+    "business_unit": "Authentication",
+    "environment": "development",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Authentication Team",
+    "os": "Ubuntu 22.04",
+    "software_installed": [
+      "keycloak/21.0",
+      "java/17",
+      "postgresql/14",
+      "nginx/1.24.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-033",
+    "asset_name": "customer-portal-stag-33",
+    "business_unit": "Customer Portal",
+    "environment": "staging",
+    "internet_facing": true,
+    "criticality": "medium",
+    "owner_team": "Customer Portal Team",
+    "os": "Amazon Linux 2",
+    "software_installed": [
+      "nodejs/18.0",
+      "react/18.2",
+      "express/4.18",
+      "mongodb/6.0",
+      "nginx/1.22.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-034",
+    "asset_name": "api-gateway-prod-34",
+    "business_unit": "API Gateway",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "API Gateway Team",
+    "os": "Windows Server 2019",
+    "software_installed": [
+      "kong/3.3",
+      "nginx/1.24.0",
+      "redis/7.0",
+      "python/3.11"
+    ],
+    "pci_dss_scope": true,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-035",
+    "asset_name": "internal-hr-prod-35",
+    "business_unit": "Internal HR",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "medium",
+    "owner_team": "Internal HR Team",
+    "os": "RHEL 8",
+    "software_installed": [
+      "java/17",
+      "spring-boot/3.1",
+      "mysql/8.0",
+      "apache-tomcat/10.1"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-036",
+    "asset_name": "internal-hr-stag-36",
+    "business_unit": "Internal HR",
+    "environment": "staging",
+    "internet_facing": false,
+    "criticality": "critical",
+    "owner_team": "Internal HR Team",
+    "os": "Amazon Linux 2",
+    "software_installed": [
+      "java/17",
+      "spring-boot/3.1",
+      "mysql/8.0",
+      "apache-tomcat/10.1"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-037",
+    "asset_name": "authentication-deve-37",
+    "business_unit": "Authentication",
+    "environment": "development",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Authentication Team",
+    "os": "RHEL 8",
+    "software_installed": [
+      "keycloak/21.0",
+      "java/17",
+      "postgresql/14",
+      "nginx/1.24.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-038",
+    "asset_name": "data-analytics-prod-38",
+    "business_unit": "Data Analytics",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "high",
+    "owner_team": "Data Analytics Team",
+    "os": "RHEL 8",
+    "software_installed": [
+      "python/3.10",
+      "pandas/2.0",
+      "jupyter/3.6",
+      "postgresql/15",
+      "redis/7.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-039",
+    "asset_name": "payment-processing-stag-39",
+    "business_unit": "Payment Processing",
+    "environment": "staging",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Payment Processing Team",
+    "os": "Windows Server 2019",
+    "software_installed": [
+      "nginx/1.24.0",
+      "python/3.11",
+      "django/4.1.0",
+      "postgresql/14",
+      "openssl/3.0.2"
+    ],
+    "pci_dss_scope": true,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-040",
+    "asset_name": "payment-processing-prod-40",
+    "business_unit": "Payment Processing",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Payment Processing Team",
+    "os": "Windows Server 2022",
+    "software_installed": [
+      "nginx/1.24.0",
+      "python/3.11",
+      "django/4.1.0",
+      "postgresql/14",
+      "openssl/3.0.2"
+    ],
+    "pci_dss_scope": true,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-041",
+    "asset_name": "authentication-prod-41",
+    "business_unit": "Authentication",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Authentication Team",
+    "os": "Ubuntu 20.04",
+    "software_installed": [
+      "keycloak/21.0",
+      "java/17",
+      "postgresql/14",
+      "nginx/1.24.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-042",
+    "asset_name": "customer-portal-prod-42",
+    "business_unit": "Customer Portal",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "low",
+    "owner_team": "Customer Portal Team",
+    "os": "Ubuntu 22.04",
+    "software_installed": [
+      "nodejs/18.0",
+      "react/18.2",
+      "express/4.18",
+      "mongodb/6.0",
+      "nginx/1.22.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-043",
+    "asset_name": "internal-hr-prod-43",
+    "business_unit": "Internal HR",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "low",
+    "owner_team": "Internal HR Team",
+    "os": "RHEL 8",
+    "software_installed": [
+      "java/17",
+      "spring-boot/3.1",
+      "mysql/8.0",
+      "apache-tomcat/10.1"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-044",
+    "asset_name": "internal-hr-prod-44",
+    "business_unit": "Internal HR",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "low",
+    "owner_team": "Internal HR Team",
+    "os": "Ubuntu 20.04",
+    "software_installed": [
+      "java/17",
+      "spring-boot/3.1",
+      "mysql/8.0",
+      "apache-tomcat/10.1"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-045",
+    "asset_name": "data-analytics-stag-45",
+    "business_unit": "Data Analytics",
+    "environment": "staging",
+    "internet_facing": false,
+    "criticality": "low",
+    "owner_team": "Data Analytics Team",
+    "os": "Amazon Linux 2",
+    "software_installed": [
+      "python/3.10",
+      "pandas/2.0",
+      "jupyter/3.6",
+      "postgresql/15",
+      "redis/7.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-046",
+    "asset_name": "api-gateway-prod-46",
+    "business_unit": "API Gateway",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "API Gateway Team",
+    "os": "RHEL 8",
+    "software_installed": [
+      "kong/3.3",
+      "nginx/1.24.0",
+      "redis/7.0",
+      "python/3.11"
+    ],
+    "pci_dss_scope": true,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-047",
+    "asset_name": "devops-tooling-prod-47",
+    "business_unit": "DevOps Tooling",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "high",
+    "owner_team": "DevOps Tooling Team",
+    "os": "Ubuntu 22.04",
+    "software_installed": [
+      "jenkins/2.400",
+      "docker/24.0",
+      "git/2.40",
+      "python/3.11"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-048",
+    "asset_name": "api-gateway-prod-48",
+    "business_unit": "API Gateway",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "API Gateway Team",
+    "os": "RHEL 8",
+    "software_installed": [
+      "kong/3.3",
+      "nginx/1.24.0",
+      "redis/7.0",
+      "python/3.11"
+    ],
+    "pci_dss_scope": true,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-049",
+    "asset_name": "data-analytics-stag-49",
+    "business_unit": "Data Analytics",
+    "environment": "staging",
+    "internet_facing": false,
+    "criticality": "critical",
+    "owner_team": "Data Analytics Team",
+    "os": "Ubuntu 22.04",
+    "software_installed": [
+      "python/3.10",
+      "pandas/2.0",
+      "jupyter/3.6",
+      "postgresql/15",
+      "redis/7.0"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": false
+  },
+  {
+    "asset_id": "ASSET-050",
+    "asset_name": "payment-processing-prod-50",
+    "business_unit": "Payment Processing",
+    "environment": "production",
+    "internet_facing": true,
+    "criticality": "critical",
+    "owner_team": "Payment Processing Team",
+    "os": "Ubuntu 22.04",
+    "software_installed": [
+      "nginx/1.24.0",
+      "python/3.11",
+      "django/4.1.0",
+      "postgresql/14",
+      "openssl/3.0.2"
+    ],
+    "pci_dss_scope": true,
+    "hipaa_scope": false,
+    "soc2_scope": true
+  }
+]

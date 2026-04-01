@@ -1,0 +1,156 @@
+{
+  "service_dependencies": {
+    "api-gateway": [
+      "authentication-svc",
+      "payment-svc",
+      "customer-portal-svc",
+      "reporting-svc"
+    ],
+    "payment-svc": [
+      "postgresql-14",
+      "redis-7.0",
+      "openssl-3.0.2"
+    ],
+    "authentication-svc": [
+      "postgresql-14",
+      "keycloak-21.0",
+      "redis-7.0"
+    ],
+    "customer-portal-svc": [
+      "mongodb-6.0",
+      "nodejs-18.0",
+      "redis-7.0"
+    ],
+    "reporting-svc": [
+      "mysql-8.0",
+      "python-3.9",
+      "celery-5.3"
+    ],
+    "data-analytics": [
+      "postgresql-15",
+      "python-3.10",
+      "pandas-2.0"
+    ],
+    "hr-system": [
+      "mysql-8.0",
+      "java-17",
+      "spring-boot-3.1"
+    ],
+    "devops-tooling": [
+      "jenkins-2.400",
+      "docker-24.0",
+      "python-3.11"
+    ],
+    "keycloak-21.0": [
+      "java-17",
+      "postgresql-14"
+    ],
+    "celery-5.3": [
+      "redis-7.0",
+      "python-3.9"
+    ]
+  },
+  "packages": [
+    {
+      "name": "openssl",
+      "version": "3.0.2",
+      "type": "library",
+      "language": "C",
+      "used_by": [
+        "payment-svc",
+        "api-gateway"
+      ]
+    },
+    {
+      "name": "django",
+      "version": "4.1.0",
+      "type": "framework",
+      "language": "python",
+      "used_by": [
+        "payment-svc",
+        "reporting-svc"
+      ]
+    },
+    {
+      "name": "spring-boot",
+      "version": "3.1.0",
+      "type": "framework",
+      "language": "java",
+      "used_by": [
+        "hr-system"
+      ]
+    },
+    {
+      "name": "nginx",
+      "version": "1.22.0",
+      "type": "server",
+      "language": "C",
+      "used_by": [
+        "customer-portal-svc",
+        "api-gateway"
+      ]
+    },
+    {
+      "name": "postgresql",
+      "version": "14.0",
+      "type": "database",
+      "language": "C",
+      "used_by": [
+        "payment-svc",
+        "authentication-svc",
+        "keycloak-21.0"
+      ]
+    },
+    {
+      "name": "redis",
+      "version": "7.0",
+      "type": "cache",
+      "language": "C",
+      "used_by": [
+        "payment-svc",
+        "authentication-svc",
+        "customer-portal-svc",
+        "celery-5.3"
+      ]
+    },
+    {
+      "name": "nodejs",
+      "version": "18.0",
+      "type": "runtime",
+      "language": "javascript",
+      "used_by": [
+        "customer-portal-svc"
+      ]
+    },
+    {
+      "name": "java",
+      "version": "17",
+      "type": "runtime",
+      "language": "java",
+      "used_by": [
+        "hr-system",
+        "keycloak-21.0",
+        "authentication-svc"
+      ]
+    },
+    {
+      "name": "python",
+      "version": "3.9",
+      "type": "runtime",
+      "language": "python",
+      "used_by": [
+        "reporting-svc",
+        "celery-5.3"
+      ]
+    },
+    {
+      "name": "jenkins",
+      "version": "2.400",
+      "type": "cicd",
+      "language": "java",
+      "used_by": [
+        "devops-tooling"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+.venv/
+
+# Large raw data files (tracked via git-lfs or downloaded via scripts)
+#data/raw/mitre_attack.json
+
+# IDE
+.idea/
+.vscode/
+.claude/
+
+# OS
+.DS_Store
