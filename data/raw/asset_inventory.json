@@ -327,7 +327,7 @@
       "apache-tomcat/10.1"
     ],
     "pci_dss_scope": false,
-    "hipaa_scope": false,
+    "hipaa_scope": true,
     "soc2_scope": false
   },
   {
@@ -578,7 +578,7 @@
       "apache-tomcat/10.1"
     ],
     "pci_dss_scope": false,
-    "hipaa_scope": false,
+    "hipaa_scope": true,
     "soc2_scope": false
   },
   {
@@ -675,7 +675,7 @@
       "apache-tomcat/10.1"
     ],
     "pci_dss_scope": false,
-    "hipaa_scope": false,
+    "hipaa_scope": true,
     "soc2_scope": false
   },
   {
@@ -694,7 +694,7 @@
       "apache-tomcat/10.1"
     ],
     "pci_dss_scope": false,
-    "hipaa_scope": false,
+    "hipaa_scope": true,
     "soc2_scope": false
   },
   {
@@ -831,7 +831,7 @@
       "apache-tomcat/10.1"
     ],
     "pci_dss_scope": false,
-    "hipaa_scope": false,
+    "hipaa_scope": true,
     "soc2_scope": false
   },
   {
@@ -850,7 +850,7 @@
       "apache-tomcat/10.1"
     ],
     "pci_dss_scope": false,
-    "hipaa_scope": false,
+    "hipaa_scope": true,
     "soc2_scope": false
   },
   {

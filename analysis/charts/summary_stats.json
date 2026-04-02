@@ -13,11 +13,11 @@
     "mean_cvss": 6.9
   },
   "epss": {
-    "sample_size": 2051,
-    "total_in_db": 2051,
-    "pct_below_0_1": 42.0,
-    "pct_above_0_5": 44.0,
-    "median_epss": 0.29491
+    "matched_sample_size": 2051,
+    "total_in_db": 323901,
+    "pct_below_0_1": 99.6,
+    "pct_above_0_5": 0.1,
+    "median_epss_full_sample": 0.00036
   },
   "kev": {
     "total": 1555,

@@ -253,6 +253,11 @@ CWE_NAMES = {
     "CWE-306": "CWE-306: Missing Authentication",
     "CWE-918": "CWE-918: SSRF",
     "CWE-362": "CWE-362: Race Condition",
+    "CWE-862": "CWE-862: Missing Authorization",
+    "CWE-276": "CWE-276: Incorrect Default Permissions",
+    "CWE-770": "CWE-770: Resource Allocation Without Limits",
+    "CWE-823": "CWE-823: Use of Out-of-Range Pointer",
+    "CWE-23":  "CWE-23: Relative Path Traversal",
 }
 
 
@@ -882,7 +887,7 @@ fig.patch.set_facecolor(BG)
 
 layers = [
     (0.2, 4.5, "#E63946", "#FFE0E0", "Layer 1: CVSS Only",
-     "Base technical score\n• 500K+ CVEs all clustered 7–9\n• Cannot distinguish business risk",
+     "Base technical score\n• 341K+ CVEs all clustered 7–9\n• Cannot distinguish business risk",
      "Existing\nTools"),
     (0.2, 3.4, "#F4A261", "#FFF0E0", "Layer 2: + EPSS Score",
      "Exploit probability (0–1)\n• 98.6% of CVEs have EPSS < 0.1\n• Filters true noise from signal",
@@ -1114,11 +1119,11 @@ summary = {
         "mean_cvss": round(float(nvd["cvss"].mean()), 2),
     },
     "epss": {
-        "sample_size": len(epss),
-        "total_in_db": int(epss_raw["total"]),
-        "pct_below_0_1": round(float((epss["epss"] < 0.1).mean() * 100), 1),
-        "pct_above_0_5": round(float((epss["epss"] > 0.5).mean() * 100), 1),
-        "median_epss": round(float(epss["epss"].median()), 5),
+        "matched_sample_size": len(epss),
+        "total_in_db": int(epss_full_raw["total"]),
+        "pct_below_0_1": round(float((epss_full["epss"] < 0.1).mean() * 100), 1),
+        "pct_above_0_5": round(float((epss_full["epss"] > 0.5).mean() * 100), 1),
+        "median_epss_full_sample": round(float(epss_full["epss"].median()), 5),
     },
     "kev": {
         "total": int(len(kev)),
@@ -1162,7 +1167,7 @@ print(f"  {summary['charts_generated']} charts saved to: {OUT}")
 print()
 print("  Key findings for your deck:")
 print(f"  • NVD: {summary['nvd']['total_in_db']:,} total CVEs | {summary['nvd']['severity_distribution'].get('CRITICAL',0)} CRITICAL in sample")
-print(f"  • EPSS: {summary['epss']['pct_below_0_1']}% of CVEs have EPSS < 0.1 (low real-world risk)")
+print(f"  • EPSS: {summary['epss']['pct_below_0_1']}% of {summary['epss']['total_in_db']:,} CVEs have EPSS < 0.1 (low real-world risk)")
 print(f"  • KEV:  {summary['kev']['ransomware_pct']}% of actively exploited CVEs linked to ransomware campaigns")
 print(f"  • EPSS on KEV: {summary['epss_kev_comparison']['ratio']}x higher median EPSS than non-KEV CVEs")
 print(f"  • MSRC: {summary['msrc']['patch_available_pct']}% of Microsoft CVEs have patches available")
