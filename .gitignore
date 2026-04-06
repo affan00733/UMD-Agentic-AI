@@ -13,6 +13,6 @@ venv/
 .idea/
 .vscode/
 .claude/
-
+.output/
 # OS
 .DS_Store

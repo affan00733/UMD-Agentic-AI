@@ -294,7 +294,7 @@ Orchestrator Agent
 | 4 | Pre-patch conflict detection | Checks if the patch breaks other services BEFORE recommending |
 | 5 | Per-CVE ROI in dollars | First system to output patching ROI in $ for CFO-level justification |
 
-**Cost: Under $3,000/year vs. Tenable/Qualys at $25,000–$100,000/year.**
+**Cost: Under $3,000/year vs. Tenable/Qualys (the two dominant commercial vulnerability management platforms) at $25,000–$100,000/year.**
 """))
 
 # ─── 3. NVD ──────────────────────────────────────────────────────────────────
@@ -484,7 +484,7 @@ cells.append(md("""---
 <a id="msrc"></a>
 ## 8 · Source 5 — Microsoft MSRC
 
-**What:** Microsoft's official security advisory database — covers Windows, Office, Azure, Exchange, .NET, Edge. Published monthly on Patch Tuesday.
+**What:** Microsoft's official security advisory database — covers Windows, Office, Azure, Exchange, .NET, Edge. Published monthly on "Patch Tuesday" (Microsoft's scheduled day, every second Tuesday of the month, for releasing security fixes).
 **Used by:** Agent 8 (Patch Feasibility) — GitHub covers open-source; MSRC covers Microsoft.
 **Why essential:** Microsoft has **362 CVEs in CISA KEV** — the most of any vendor. Without MSRC, ARIA has no patch data for the most-targeted software on the planet.
 """))
@@ -567,7 +567,7 @@ cells.append(md("""---
 **What:** These represent internal organizational data. Synthetic for demo; in production they come from:
 - Plain-English org description → Business Context Agent builds the asset map automatically (no CMDB — Configuration Management Database — required)
 - ServiceNow/CMDB export (if the company has one)
-- Service manifest scan (package.json, requirements.txt, pom.xml)
+- Service manifest scan (package.json for JavaScript apps, requirements.txt for Python apps, pom.xml for Java apps — each is a file that lists every software package a service depends on)
 
 **Why synthetic is correct for the competition:** The competition evaluates the *agent architecture and reasoning*, not the org's internal data. Using synthetic data lets us demonstrate all ARIA capabilities without needing a real company's confidential infrastructure data.
 """))
@@ -751,13 +751,13 @@ cells.append(md("""### Answering All Four Competition Evaluation Criteria
 | **1. Timeline & Cost** | MVP: 4 weeks (current stage). Production: 3 months. Cost: $80–230/month = under $3,000/year. |
 | **2. Clear ROI** | $70–80K/year labor savings + breach risk reduction. HHS back-test will produce empirical accuracy numbers by April 23. |
 | **3. Unintended Consequences** | Confidence scores on every output. KEV CVEs ranked below #5 require mandatory human sign-off. Patch conflict detection is a hard gate. System recommends — never executes. |
-| **4. Dependencies Mapped** | Upstream: NVD/EPSS/KEV (daily), GitHub/MSRC (monthly), org docs (on upload). Downstream: SecOps team, DevOps tickets, CISO dashboard, Jira/ServiceNow, audit logs, monthly CFO report. |
+| **4. Dependencies Mapped** | Upstream: NVD/EPSS/KEV (daily), GitHub/MSRC (monthly), org docs (on upload). Downstream: SecOps (Security Operations) team, DevOps engineering tickets, CISO (Chief Information Security Officer) dashboard, Jira/ServiceNow (project management tools), audit logs, monthly CFO report. |
 
 ---
 
 ### The One-Paragraph Pitch
 
-> ARIA solves a $4.88M problem that every enterprise faces: **wrong patch prioritization**. Today's tools sort vulnerabilities by CVSS — a score that ignores whether anyone is exploiting the vulnerability, whether it runs on *your* systems, and what it would actually cost *your* business. Using 7 authoritative free data sources and a 10-agent AI architecture, ARIA produces a prioritization list that accounts for real-world exploit probability (360× signal difference proven from data), confirmed active exploitation, organizational asset criticality, compliance fine exposure (PCI/HIPAA/SOC2), blast radius, and dollar ROI per patch — all for under $3,000/year vs. $25K–$100K for Tenable or Qualys, with full auditability and human-in-the-loop safety design. **The data shows 99.6% of CVEs are noise. ARIA finds the signal.**
+> ARIA solves a $4.88M problem that every enterprise faces: **wrong patch prioritization**. Today's tools sort vulnerabilities by CVSS — a score that ignores whether anyone is exploiting the vulnerability, whether it runs on *your* systems, and what it would actually cost *your* business. Using 7 authoritative free data sources and a 10-agent AI architecture, ARIA produces a prioritization list that accounts for real-world exploit probability (360× signal difference proven from data), confirmed active exploitation, organizational asset criticality, compliance fine exposure (PCI/HIPAA/SOC2), blast radius, and dollar ROI per patch — all for under $3,000/year vs. $25K–$100K for Tenable or Qualys (the current industry-leading tools), with full auditability and human-in-the-loop safety design. **The data shows 99.6% of CVEs are noise. ARIA finds the signal.**
 
 ---
 """))
