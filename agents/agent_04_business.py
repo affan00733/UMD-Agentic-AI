@@ -126,7 +126,7 @@ INDUSTRY_KEYWORDS = {
     "Technology":    ["software","saas","platform","api","developer","cloud","startup","tech"],
     "Government":    ["government","federal","agency","municipal","public sector","defense"],
     "Education":     ["university","college","school","education","student","campus","academic"],
-    "Manufacturing": ["manufacturing","factory","industrial","plant","supply chain","logistics"],
+    "Manufacturing": ["manufactur","factory","factories","industrial","plant","supply chain","logistics","automotive","semiconductor","aerospace","warehouse"],
     "Media":         ["media","publishing","news","broadcast","entertainment","streaming"],
 }
 
