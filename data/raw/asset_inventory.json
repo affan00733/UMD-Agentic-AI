@@ -969,5 +969,116 @@
     "pci_dss_scope": true,
     "hipaa_scope": false,
     "soc2_scope": true
+  },
+  {
+    "asset_id": "ASSET-051",
+    "asset_name": "postgresql-primary-prod-51",
+    "business_unit": "Database Infrastructure",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "critical",
+    "owner_team": "Platform Engineering",
+    "os": "Ubuntu 22.04",
+    "software_installed": [
+      "postgresql/14.0",
+      "pgbouncer/1.18",
+      "openssl/3.0.2"
+    ],
+    "pci_dss_scope": true,
+    "hipaa_scope": true,
+    "soc2_scope": true,
+    "asset_type": "database"
+  },
+  {
+    "asset_id": "ASSET-052",
+    "asset_name": "postgresql-replica-prod-52",
+    "business_unit": "Database Infrastructure",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "critical",
+    "owner_team": "Platform Engineering",
+    "os": "Ubuntu 22.04",
+    "software_installed": [
+      "postgresql/14.0",
+      "pgbouncer/1.18",
+      "openssl/3.0.2"
+    ],
+    "pci_dss_scope": true,
+    "hipaa_scope": true,
+    "soc2_scope": true,
+    "asset_type": "database"
+  },
+  {
+    "asset_id": "ASSET-053",
+    "asset_name": "mysql-primary-prod-53",
+    "business_unit": "Database Infrastructure",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "critical",
+    "owner_team": "Platform Engineering",
+    "os": "Amazon Linux 2",
+    "software_installed": [
+      "mysql/8.0",
+      "openssl/3.0.2"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": false,
+    "soc2_scope": true,
+    "asset_type": "database"
+  },
+  {
+    "asset_id": "ASSET-054",
+    "asset_name": "mongodb-primary-prod-54",
+    "business_unit": "Database Infrastructure",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "critical",
+    "owner_team": "Platform Engineering",
+    "os": "Ubuntu 20.04",
+    "software_installed": [
+      "mongodb/6.0",
+      "openssl/3.0.2"
+    ],
+    "pci_dss_scope": false,
+    "hipaa_scope": true,
+    "soc2_scope": true,
+    "asset_type": "database"
+  },
+  {
+    "asset_id": "ASSET-055",
+    "asset_name": "redis-cache-prod-55",
+    "business_unit": "Database Infrastructure",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "high",
+    "owner_team": "Platform Engineering",
+    "os": "Ubuntu 20.04",
+    "software_installed": [
+      "redis/7.0",
+      "openssl/3.0.2"
+    ],
+    "pci_dss_scope": true,
+    "hipaa_scope": false,
+    "soc2_scope": true,
+    "asset_type": "database"
+  },
+  {
+    "asset_id": "ASSET-056",
+    "asset_name": "keycloak-identity-prod-56",
+    "business_unit": "Identity Infrastructure",
+    "environment": "production",
+    "internet_facing": false,
+    "criticality": "critical",
+    "owner_team": "Platform Engineering",
+    "os": "RHEL 8",
+    "software_installed": [
+      "keycloak/21.0",
+      "java/17",
+      "postgresql/14.0"
+    ],
+    "pci_dss_scope": true,
+    "hipaa_scope": true,
+    "soc2_scope": true,
+    "asset_type": "identity"
   }
 ]

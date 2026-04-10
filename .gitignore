@@ -13,6 +13,9 @@ venv/
 .idea/
 .vscode/
 .claude/
-.output/
+
+# Generated output files (created at runtime — not source code)
+output/
+
 # OS
 .DS_Store

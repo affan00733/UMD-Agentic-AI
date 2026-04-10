@@ -13,8 +13,8 @@
       "recall@10": 1.0,
       "recall@20": 1.0,
       "recall@50": 1.0,
-      "mrr": 0.5208333333333334,
-      "avg_rank": 2.5
+      "mrr": 0.5083333333333333,
+      "avg_rank": 2.75
     },
     "CVSS-only": {
       "recall@5": 0.0,
@@ -34,7 +34,7 @@
     }
   },
   "improvement_recall_10": Infinity,
-  "improvement_mrr": 19.95,
+  "improvement_mrr": 19.48,
   "random_baseline_recall_10": 0.02,
   "ranking_details": [
     {
@@ -55,7 +55,7 @@
       "cve_id": "CVE-2024-50302",
       "cvss": 5.5,
       "epss": 0.01318,
-      "aria_rank": 4,
+      "aria_rank": 5,
       "cvss_rank": 232
     },
     {

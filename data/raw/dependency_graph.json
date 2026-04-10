@@ -7,32 +7,32 @@
       "reporting-svc"
     ],
     "payment-svc": [
-      "postgresql-14",
-      "redis-7.0",
+      "postgresql-primary",
+      "redis-cache",
       "openssl-3.0.2"
     ],
     "authentication-svc": [
-      "postgresql-14",
-      "keycloak-21.0",
-      "redis-7.0"
+      "postgresql-primary",
+      "keycloak-identity",
+      "redis-cache"
     ],
     "customer-portal-svc": [
-      "mongodb-6.0",
+      "mongodb-primary",
       "nodejs-18.0",
-      "redis-7.0"
+      "redis-cache"
     ],
     "reporting-svc": [
-      "mysql-8.0",
+      "mysql-primary",
       "python-3.9",
       "celery-5.3"
     ],
     "data-analytics": [
-      "postgresql-15",
+      "postgresql-primary",
       "python-3.10",
       "pandas-2.0"
     ],
     "hr-system": [
-      "mysql-8.0",
+      "mysql-primary",
       "java-17",
       "spring-boot-3.1"
     ],
@@ -48,6 +48,25 @@
     "celery-5.3": [
       "redis-7.0",
       "python-3.9"
+    ],
+    "postgresql-primary": [
+      "openssl-3.0.2"
+    ],
+    "postgresql-replica": [
+      "postgresql-primary"
+    ],
+    "mysql-primary": [
+      "openssl-3.0.2"
+    ],
+    "mongodb-primary": [
+      "openssl-3.0.2"
+    ],
+    "redis-cache": [
+      "openssl-3.0.2"
+    ],
+    "keycloak-identity": [
+      "postgresql-primary",
+      "java-17"
     ]
   },
   "packages": [
@@ -150,6 +169,59 @@
       "language": "java",
       "used_by": [
         "devops-tooling"
+      ]
+    },
+    {
+      "name": "postgresql",
+      "version": "14.0 (primary server)",
+      "type": "database",
+      "language": "C",
+      "used_by": [
+        "payment-svc",
+        "authentication-svc",
+        "keycloak-identity",
+        "data-analytics"
+      ]
+    },
+    {
+      "name": "mysql",
+      "version": "8.0 (primary server)",
+      "type": "database",
+      "language": "C",
+      "used_by": [
+        "reporting-svc",
+        "hr-system"
+      ]
+    },
+    {
+      "name": "mongodb",
+      "version": "6.0 (primary server)",
+      "type": "database",
+      "language": "C++",
+      "used_by": [
+        "customer-portal-svc"
+      ]
+    },
+    {
+      "name": "redis",
+      "version": "7.0 (cache cluster)",
+      "type": "cache",
+      "language": "C",
+      "used_by": [
+        "payment-svc",
+        "authentication-svc",
+        "customer-portal-svc",
+        "celery-5.3"
+      ]
+    },
+    {
+      "name": "keycloak",
+      "version": "21.0 (identity server)",
+      "type": "identity",
+      "language": "java",
+      "used_by": [
+        "authentication-svc",
+        "api-gateway"
       ]
     }
   ]

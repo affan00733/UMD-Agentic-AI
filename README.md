@@ -32,7 +32,7 @@ Run `python evaluate.py` — reproducible in < 60 seconds:
 |--------|------|-----------|-----------|
 | **Recall@10** | **100%** | 0% | 75% |
 | **Recall@5** | **100%** | 0% | 50% |
-| **MRR** | **0.521** | 0.026 | 0.410 |
+| **MRR** | **0.508** | 0.026 | 0.410 |
 | **Avg rank of KEV CVEs** | **2** | 122 | 18 |
 
 > CVSS-only misses all 4 confirmed-exploited CVEs in the top-10 patch list.
@@ -149,8 +149,8 @@ Tests every agent, the scoring formula, the scheduler, and the full pipeline.
 | GitHub Advisories | 500 advisories | 8 — Patch Feasibility | github.com/advisories |
 | Microsoft MSRC | 2,179 CVEs | 8 — Patch Feasibility | msrc.microsoft.com |
 | HHS Breach Portal | 697 breaches | Validation | hhs.gov/hipaa/breach |
-| Asset Inventory | 50 assets | 5 — Asset Matching | Synthetic |
-| Dependency Graph | 10 services | 7 — Blast Radius | Synthetic |
+| Asset Inventory | 56 assets (incl. database tier) | 5 — Asset Matching | Synthetic |
+| Dependency Graph | 16 services | 7 — Blast Radius | Synthetic |
 
 All data pre-downloaded to `data/raw/`. Do not re-download.
 
@@ -197,8 +197,13 @@ Every output includes: `VERY HIGH / HIGH / MEDIUM / LOW`
 - **MEDIUM** — Moderate EPSS or keyword-based asset match
 - **LOW** — Low EPSS, no asset match (CVSS-only signal)
 
-### 3. Blast Radius via Dependency Graph BFS
-CVE-2024-52304 on `api-gateway-prod-08` scores blast=0.56 because 14 downstream services inherit the risk. Computed by BFS traversal of your service dependency graph — no other tool does this automatically.
+### 3. Blast Radius — Three-Layer Fallback (No CVE Left at Zero)
+ARIA uses three methods in order, taking the highest credible estimate:
+- **Layer 1 — Graph BFS**: Walk the 16-node service dependency graph downstream from the matched asset
+- **Layer 2 — Software Spread**: Count every other asset in the inventory running the same vulnerable software (correct model for library CVEs like log4j, openssl, nginx that hit every machine simultaneously)
+- **Layer 3 — CWE + Criticality Heuristic**: When neither graph nor spread produces a count, estimate from the weakness category and asset properties
+
+CVE-2024-47533 on `keycloak-identity-prod-56` scores blast=0.60 (CRITICAL) because 34 systems depend on the identity provider. CVE-2024-52304 on `api-gateway-prod-08` scores blast=0.54 because 15 downstream services inherit the risk. No other tool does this automatically.
 
 ### 4. Dollar-Denominated Prioritization
 Every CVE: patch cost ($75/hr × hours), breach risk prevented ($), net ROI ($), fine exposure ($). Sorted by business impact, not technical severity.
