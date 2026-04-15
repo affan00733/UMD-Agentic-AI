@@ -33,7 +33,7 @@ Run `python evaluate.py` — reproducible in < 60 seconds:
 | **Recall@10** | **100%** | 0% | 75% |
 | **Recall@5** | **100%** | 0% | 50% |
 | **MRR** | **0.508** | 0.026 | 0.410 |
-| **Avg rank of KEV CVEs** | **2** | 122 | 18 |
+| **Avg rank of KEV CVEs** | **3** | 122 | 18 |
 
 > CVSS-only misses all 4 confirmed-exploited CVEs in the top-10 patch list.
 > ARIA catches all 4. A team using CVSS-only would have patched the wrong things first.
@@ -96,45 +96,60 @@ Output: Tiered patch plan + maintenance window schedule + ROI report
 
 ---
 
+## Requirements
+
+- **Python 3.10+** (required — uses `match` statements and modern type hints)
+- No API key needed for full functionality (Claude features use deterministic fallbacks)
+
 ## Quick Start (5 minutes)
 
-### 1. Install dependencies
+### Option A — Command-line (fastest)
 
 ```bash
-pip install pandas anthropic requests matplotlib seaborn plotly kaleido
-```
+# 1. Install backend dependencies
+cd backend/
+pip3 install -r requirements.txt
 
-### 2. Run ARIA (demo mode — no API key needed)
+# 2. Run ARIA (demo mode — no API key needed)
+python3 run_aria.py
 
-```bash
-python run_aria.py
-```
-
-Output appears in `output/` as `.md` (human report), `.json` (audit trail), `.csv` (spreadsheet).
-
-### 3. Run ARIA on your organization
-
-```bash
-python run_aria.py --org "We are a healthcare SaaS company serving hospitals. \
+# 3. Run ARIA on your organization
+python3 run_aria.py --org "We are a healthcare SaaS company serving hospitals. \
   We store patient records (PHI), process credit card payments, and run on AWS. \
   Stack: Python, React, PostgreSQL, Docker. 500 employees."
 ```
 
-### 4. Run the evaluation (reproduce our proof)
+Output appears in `output/` as `.md` (human report), `.json` (audit trail), `.csv` (spreadsheet).
 
+### Option B — Web UI (War Room Dashboard)
+
+Open **two terminals**:
+
+**Terminal 1 — start the API server:**
 ```bash
-python evaluate.py
+cd backend/
+pip3 install -r requirements.txt
+uvicorn api:app --host 0.0.0.0 --port 8000
 ```
 
-Prints Recall@N and MRR for ARIA, CVSS-only, and EPSS-only on the same 500 CVEs.
-
-### 5. Run the full test suite
-
+**Terminal 2 — start the Streamlit UI:**
 ```bash
-python test_aria.py
+cd frontend/
+pip3 install -r requirements.txt
+streamlit run ui/app.py
 ```
 
-Tests every agent, the scoring formula, the scheduler, and the full pipeline.
+Then open [http://localhost:8501](http://localhost:8501) in your browser.
+
+> Set `ANTHROPIC_API_KEY` in your environment to enable Claude reasoning in Agents 4, 10, and the Orchestrator. ARIA works fully without it using deterministic fallbacks.
+
+### Evaluation & Tests
+
+```bash
+cd backend/
+python3 evaluate.py   # Recall@N + MRR proof (< 60 seconds)
+python3 test_aria.py  # Full test suite — all agents + pipeline
+```
 
 ---
 
@@ -216,10 +231,10 @@ Every ranking decision is traceable. JSON audit trail records every signal value
 ## Reproducibility
 
 ```bash
-# Full reproduction in 3 commands:
-pip install pandas anthropic requests matplotlib seaborn plotly kaleido
-python test_aria.py     # verify all components work
-python evaluate.py      # reproduce Recall@10=100% proof
+# Full reproduction in 3 commands (run from backend/):
+pip3 install -r requirements.txt
+python3 test_aria.py     # verify all components work (56/56 pass)
+python3 evaluate.py      # reproduce Recall@10=100% proof
 ```
 
 If `ANTHROPIC_API_KEY` is set, Claude reasoning activates for Agents 4, 10, and the Orchestrator.
@@ -231,31 +246,39 @@ Without it, all three fall back to deterministic rule-based logic. **ARIA works 
 
 ```
 UMD-Agentic-AI/
-├── run_aria.py              # Main entry point
-├── evaluate.py              # Back-test evaluation (Recall@N, MRR)
-├── test_aria.py             # Comprehensive test suite (unit + integration + eval)
-├── agents/
-│   ├── orchestrator.py      # Pipeline coordinator + Claude triage validation
-│   ├── agent_01_ingest.py   # CVE ingestion (NVD)
-│   ├── agent_02_exploit.py  # EPSS + CISA KEV exploit intelligence
-│   ├── agent_03_threat.py   # MITRE ATT&CK tactic mapping
-│   ├── agent_04_business.py # Business context parsing (Claude Haiku)
-│   ├── agent_05_assets.py   # Asset matching (CPE + vendor + package)
-│   ├── agent_06_compliance.py # PCI DSS / HIPAA / SOC2 fine estimation
-│   ├── agent_07_blast.py    # Blast radius via BFS dependency traversal
-│   ├── agent_08_patch.py    # Patch feasibility (GitHub + MSRC)
-│   ├── agent_09_roi.py      # ROI calculation + confidence scoring
-│   ├── agent_10_report.py   # Report generation (Claude Sonnet)
-│   └── shared/
-│       ├── scoring.py       # Canonical ARIA scoring formula + confidence
-│       ├── scheduler.py     # Maintenance window scheduler
-│       └── data_loader.py   # Data access layer
-├── data/raw/                # All 9 datasets (pre-downloaded, do not re-download)
-├── analysis/                # EDA + chart generation
-│   ├── dataset_analysis.py
-│   └── charts/              # 15 pre-generated charts
-├── notebooks/               # ARIA_Data_Foundation.ipynb (data story)
-└── output/                  # Generated reports (auto-created on run)
+├── backend/                     # ARIA agent pipeline + API server
+│   ├── api.py                   # FastAPI server  (POST /run)
+│   ├── run_aria.py              # CLI entry point
+│   ├── evaluate.py              # Back-test evaluation (Recall@N, MRR)
+│   ├── test_aria.py             # Comprehensive test suite
+│   ├── requirements.txt         # Backend Python dependencies
+│   ├── agents/
+│   │   ├── orchestrator.py      # Pipeline coordinator + Claude triage
+│   │   ├── agent_01_ingest.py   # CVE ingestion (NVD)
+│   │   ├── agent_02_exploit.py  # EPSS + CISA KEV exploit intelligence
+│   │   ├── agent_03_threat.py   # MITRE ATT&CK tactic mapping
+│   │   ├── agent_04_business.py # Business context parsing (Claude Haiku)
+│   │   ├── agent_05_assets.py   # Asset matching (CPE + vendor + package)
+│   │   ├── agent_06_compliance.py # PCI DSS / HIPAA / SOC2 fine estimation
+│   │   ├── agent_07_blast.py    # Blast radius — three-layer fallback
+│   │   ├── agent_08_patch.py    # Patch feasibility (GitHub + MSRC)
+│   │   ├── agent_09_roi.py      # ROI calculation + confidence scoring
+│   │   ├── agent_10_report.py   # Report generation (Claude Sonnet)
+│   │   └── shared/
+│   │       ├── scoring.py       # Canonical ARIA scoring formula
+│   │       ├── scheduler.py     # Maintenance window scheduler
+│   │       └── data_loader.py   # Data access layer
+│   ├── data/raw/                # All 9 datasets (pre-downloaded)
+│   ├── analysis/                # EDA + chart generation
+│   │   ├── dataset_analysis.py
+│   │   └── charts/              # 15 pre-generated charts
+│   ├── notebooks/               # ARIA_Data_Foundation.ipynb
+│   └── output/                  # Generated reports (auto-created on run)
+│
+└── frontend/                    # Web UI
+    ├── requirements.txt         # Frontend Python dependencies
+    └── ui/
+        └── app.py               # Streamlit war room dashboard
 ```
 
 ---
@@ -270,10 +293,10 @@ UMD-Agentic-AI/
 
 | Criterion | ARIA's Answer |
 |-----------|---------------|
-| Timeline & Cost | MVP complete in 4 weeks. Operating cost < $3,000/year. $0 data cost. |
-| ROI / Outcomes | $291M breach risk identified. 100% Recall@10 vs 0% CVSS-only. $34M analyst savings. |
-| Risk Assessment | Full audit trail. Confidence scores on every CVE. Claude only at output layer — scoring is deterministic. |
-| System Dependencies | Blast radius via BFS on dependency graph. Maintenance window scheduling with engineer-hour budget constraints. |
+| Timeline & Cost | MVP complete in 4 weeks. Operating cost < $3,000/year ($0 data + ~$2/run Claude API). Reproducible in 3 commands. |
+| ROI / Outcomes | $299M breach risk identified. 100% Recall@10 vs 0% CVSS-only. ARIA costs $0.10/CVE vs $120 manual analyst triage. |
+| Unintended Consequences | Agent 8 flags patch dependency conflicts before scheduling. Confidence scores (VERY HIGH/HIGH/MEDIUM/LOW) on every CVE prevent over-patching low-signal findings. Maintenance window budget caps prevent engineer burnout. "System recommends, humans decide" — ARIA never auto-applies patches. |
+| System Dependencies | Blast radius via 3-layer BFS on 16-node dependency graph. Maintenance window scheduling with engineer-hour budget enforcement. Downstream service impact quantified per CVE. |
 
 ---
 

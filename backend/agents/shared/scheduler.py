@@ -80,12 +80,14 @@ DEFAULT_MAINTENANCE_WINDOWS = [
 
 # Engineer hours required per patch action
 PATCH_HOURS: dict[str, float] = {
-    "PATCH NOW — EMERGENCY":                              8.0,
-    "PATCH NOW":                                          4.0,
-    "PATCH — SCHEDULED":                                  2.0,
-    "PATCH WITH CAUTION — Test in staging first":         6.0,
-    "MONITOR":                                            0.5,   # ticket + watch
-    "UNKNOWN — Check vendor advisory":                    2.0,   # investigate + patch
+    "PATCH NOW — EMERGENCY":                                                           8.0,
+    "PATCH NOW — EMERGENCY (patch not yet confirmed; apply mitigations + contact vendor)": 8.0,
+    "PATCH NOW — EMERGENCY (ransomware-linked; apply mitigations immediately)":        8.0,
+    "PATCH NOW":                                                                       4.0,
+    "PATCH — SCHEDULED":                                                               2.0,
+    "PATCH WITH CAUTION — Test in staging first":                                      6.0,
+    "MONITOR":                                                                         0.5,   # ticket + watch
+    "UNKNOWN — Check vendor advisory":                                                 2.0,   # investigate + patch
 }
 
 ENGINEER_HOURLY_RATE = 75   # $75/hr

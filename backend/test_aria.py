@@ -427,7 +427,10 @@ def test_agent_08(records):
         fail("Required fields", f"Missing: {missing}")
 
     valid_actions = {
-        "PATCH NOW — EMERGENCY", "PATCH NOW", "PATCH — SCHEDULED",
+        "PATCH NOW — EMERGENCY",
+        "PATCH NOW — EMERGENCY (patch not yet confirmed; apply mitigations + contact vendor)",
+        "PATCH NOW — EMERGENCY (ransomware-linked; apply mitigations immediately)",
+        "PATCH NOW", "PATCH — SCHEDULED",
         "PATCH WITH CAUTION — Test in staging first", "MONITOR",
         "UNKNOWN — Check vendor advisory"
     }
@@ -599,15 +602,16 @@ def test_evaluation():
     section("Evaluation Test — ARIA vs CVSS-Only (Recall@N / MRR)")
     import json, os
 
-    # Run evaluate.py as a module
+    # Run evaluate.py as a module — must run from backend/ so imports work
     import subprocess
+    backend_dir = os.path.dirname(os.path.abspath(__file__))
     result = subprocess.run(
         [sys.executable, "evaluate.py"],
         capture_output=True, text=True,
-        cwd="/Users/afaanansari/Desktop/Study/UMD-Agentic-AI"
+        cwd=backend_dir,
     )
 
-    output = result.stdout
+    output = result.stdout + result.stderr   # capture both streams
 
     # Check Recall@10 = 100%
     if "Recall@10=100%" in output:
@@ -626,8 +630,8 @@ def test_evaluation():
     else:
         fail("MRR", "MRR not found in evaluation output")
 
-    # Check results file exists
-    results_path = "/Users/afaanansari/Desktop/Study/UMD-Agentic-AI/output/evaluation_results.json"
+    # Check results file exists — lives in backend/output/
+    results_path = os.path.join(backend_dir, "output", "evaluation_results.json")
     if os.path.exists(results_path):
         with open(results_path) as f:
             res = json.load(f)

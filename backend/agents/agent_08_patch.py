@@ -209,11 +209,21 @@ def _patch_action(
     patch_conflict:  bool,
     rec:             dict,
 ) -> str:
+    # KEV/Ransomware always gets an emergency action regardless of patch status.
+    # These are confirmed active exploits — the security team must act NOW even if
+    # the patch status is unknown; they escalate to the vendor directly.
+    if rec.get("in_kev"):
+        if patch_available is True and not patch_conflict:
+            return "PATCH NOW — EMERGENCY"
+        return "PATCH NOW — EMERGENCY (patch not yet confirmed; apply mitigations + contact vendor)"
+    if rec.get("ransomware"):
+        if patch_available is True and not patch_conflict:
+            return "PATCH NOW — EMERGENCY"
+        return "PATCH NOW — EMERGENCY (ransomware-linked; apply mitigations immediately)"
+
     if patch_available is False:
         return "MONITOR"
     if patch_available is True and not patch_conflict:
-        if rec.get("in_kev") or rec.get("ransomware"):
-            return "PATCH NOW — EMERGENCY"
         if rec.get("exploit_priority") in ("CRITICAL", "HIGH"):
             return "PATCH NOW"
         return "PATCH — SCHEDULED"

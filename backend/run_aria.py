@@ -37,6 +37,12 @@ def main():
         epilog=__doc__
     )
     parser.add_argument(
+        "--org",
+        help="Inline plain-English description of your organization "
+             "(e.g. --org \"We are a healthcare SaaS company...\"). "
+             "Alternative to --org-file."
+    )
+    parser.add_argument(
         "--org-file", "-f",
         help="Path to a plain-text file describing your organization. "
              "If not provided, uses the built-in demo org (Acme HealthTech)."
@@ -75,7 +81,10 @@ def main():
     args = parser.parse_args()
 
     # ── Load org description ──────────────────────────────────────────────────
-    if args.org_file:
+    if args.org:
+        # Inline description passed directly via --org "..."
+        org_description = args.org
+    elif args.org_file:
         if not os.path.exists(args.org_file):
             print(f"Error: org file not found: {args.org_file}", file=sys.stderr)
             sys.exit(1)
@@ -86,7 +95,7 @@ def main():
     else:
         org_description = DEMO_ORG
         if not args.quiet:
-            print("\n[ARIA] No --org-file provided. Running demo with Acme HealthTech.\n")
+            print("\n[ARIA] No --org provided. Running demo with Acme HealthTech.\n")
 
     # ── Run pipeline ──────────────────────────────────────────────────────────
     try:

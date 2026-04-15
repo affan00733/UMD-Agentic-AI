@@ -384,6 +384,7 @@ def _build_top10(records: list[dict], ctx: dict) -> list[dict]:
             "patch_action":    rec.get("patch_action"),
             "patch_source":    rec.get("patch_source"),
             "patch_conflict":  rec.get("patch_conflict"),
+            "patch_conflict_note": rec.get("patch_conflict_note", ""),
             "roi_patch_cost":  rec.get("roi_patch_cost"),
             "roi_breach_risk": rec.get("roi_breach_risk"),
             "roi_net_benefit": rec.get("roi_net_benefit"),

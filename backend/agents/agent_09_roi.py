@@ -21,12 +21,14 @@ from agents.shared.scoring import score_cve
 
 # Engineering cost to apply a patch (hours × hourly rate)
 PATCH_HOURS = {
-    "PATCH NOW — EMERGENCY":           8,    # emergency all-hands
-    "PATCH NOW":                       4,    # dedicated sprint ticket
-    "PATCH — SCHEDULED":               2,    # next sprint
-    "PATCH WITH CAUTION — Test in staging first": 6,  # test + deploy
-    "MONITOR":                         1,    # ticket + watch
-    "UNKNOWN — Check vendor advisory": 2,
+    "PATCH NOW — EMERGENCY":                                                           8,    # emergency all-hands
+    "PATCH NOW — EMERGENCY (patch not yet confirmed; apply mitigations + contact vendor)": 8,
+    "PATCH NOW — EMERGENCY (ransomware-linked; apply mitigations immediately)":        8,
+    "PATCH NOW":                                                                       4,    # dedicated sprint ticket
+    "PATCH — SCHEDULED":                                                               2,    # next sprint
+    "PATCH WITH CAUTION — Test in staging first":                                      6,    # test + deploy
+    "MONITOR":                                                                         1,    # ticket + watch
+    "UNKNOWN — Check vendor advisory":                                                 2,
 }
 ENGINEER_HOURLY_RATE = 75   # $75/hr — mid-market senior engineer rate
 
